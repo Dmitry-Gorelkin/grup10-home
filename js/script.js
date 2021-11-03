@@ -1,25 +1,39 @@
 "use strict";
 
-// const empl = [
-//   "Dima1",
-//   "Dima101",
-//   "Dima121",
-//   "Dima12121",
-//   "Dima11",
-//   "NadyaYatebyaproshu",
-//   "Dima-porasnomy",
-// ];
+/* Задача */
+// Напиши скрипт который подсчитывает общую сумму зарплат 7 работников.
+// Кол-во работников хранится в переменной employees.
+// Зарплата каждого работника это случайное число от 500 до 5000.
+// Записать сумму в переменную totalSalary и вывести в консоль.
 
+/* Решение задачи */
+// const workers = 7;
 // const min = 500;
 // const max = 5000;
 // let totalSalary = 0;
 
-// for (const emp of empl) {
+// for (let i = 0; i < workers; i++) {
+//   let salary = Math.round(Math.random() * (max - min) + min);
+//   console.log(`Зарплата сотрудника ${i + 1} равна ${salary}$`);
+//   totalSalary += salary;
+// }
+// console.log(`Зарплата всех сотрудников: ${totalSalary}$`);
+
+/* Решение задачи через цикл for...of */
+
+// const workers = ["Наташа", "Дима", "Надя", "Марина"];
+// const min = 500;
+// const max = 5000;
+// let totalSalary = 0;
+
+// for (const work of workers) {
 //   let employeeSalary = Math.round(Math.random() * (max - min) + min);
-//   console.log(`Salary of ${emp} = ${employeeSalary}`);
+//   console.log(`Salary of ${work} = ${employeeSalary}`);
 //   totalSalary += employeeSalary;
 // }
 // console.log(totalSalary);
+
+/* Решаем зачу с использованием функций и массивов */
 
 // Объявление переменных
 const workers = ["Наташа", "Дима", "Надя", "Марина"];
@@ -39,6 +53,7 @@ function salaryWorker(array, min, max) {
 }
 
 //теперь надо определить у кого самая максимальная зарплата
+// old school вариант
 // function salaryMax(arrWorkers, arrSalary) {
 //   let max = arrSalary[0];
 //   let index = 0;
@@ -52,12 +67,14 @@ function salaryWorker(array, min, max) {
 // }
 
 //высчитываем у какого сотрудника самая максимальная зарплата получаем массивы сотрудников и зарплат
+// один из множества вариантов оптимизации решения
 function salaryMax(arrWorkers, arrSalary) {
   let max = Math.max(...arrSalary); // с помощью Math.max() определяем максимальную зарплату НО т.к. на входе получаем массивно его надо распылить
   let index = arrSalary.indexOf(max); // опредлеяем индекс в максимального значения
   return `Самая большая зарплата у ${arrWorkers[index]} равна ${max}$`;
 }
 
+// тесты
 salaryWorker(workers, min, max);
 console.log(salarys);
 
